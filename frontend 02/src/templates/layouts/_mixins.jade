@@ -1,0 +1,28 @@
+- var svgSprite = 'img/sprite.svg'
+
+mixin icon(name, modClass)
+  if modClass == undefined
+    - var modClass = ''
+  else
+    - var modClass = ' ' + modClass
+  svg(class=name + modClass)
+    use(xlink:href= svgSprite + '#' + name)
+
+// Отображение куба
+mixin cube()
+    .cube
+        .top
+        .right
+        .bottom
+        .left
+        .back
+        .front
+        
+// Отображение вложенного списка департаментов
+mixin departments(items)
+    li.top-list
+        ul
+            each item, index in items
+                li(class="item item-#{ index }")
+                    +cube()
+                    .dep-name #{item}

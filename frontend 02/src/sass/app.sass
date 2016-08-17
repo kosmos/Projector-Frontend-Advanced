@@ -1,0 +1,75 @@
+// done by riverco.de
+@import helpers/all
+@import common
+@import layouts
+@import main
+@import cube
+
+// Setup section
+//  Свойства куба
+$cube-size: 100px
+
+$base-color: #239ed1
+$shift-color: 10% * 2
+
+$coloms-number: 5
+$text-font-family: Arial, sans-serif
+
+
+
+html
+    min-height: 100%
+
+    .out
+        max-width: 1000px
+        margin: 0 auto
+        padding-top: 50px
+
+body
+    min-height: 100%
+    width: 100%
+    +g(#b4e9ff, #e4eef8)
+    text-align: center
+    font-family: $text-font-family
+
+h1
+    font-size: 1em
+    font-weight: normal
+
+p
+    display: block
+    position: relative
+    font-size: 12px
+    font-style: italic
+    text-align: left
+    padding-left: 60%
+
+img.logo
+    width: $cube-size
+
+.top-list
+    display: inline-block
+    float: left
+    width: 100% / $coloms-number
+
+.item
+    display: block
+    width: 100%
+    height: $cube-size * 2.4
+
+    .dep-name
+        position: relative
+        padding-top: $cube-size * 1.5
+        display: block
+        width: 100%
+
+// Стили для кубика
+@for $i from 0 to 3
+    .item-#{$i}
+        .cube
+            +cube($cube-size, darken($base-color, 10% * $i))
+            transition: all 1s
+
+        &:hover
+            .cube
+                transform: rotateX(-120deg) rotateZ(135deg)

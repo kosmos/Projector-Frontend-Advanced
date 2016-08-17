@@ -1,0 +1,15 @@
+---
+title: Index Page
+---    
+extends layouts/_layout
+block content
+    -
+        structure = [{"department": ["ИТ", "ИТ-разработка", "Системное администрирование"]}, 
+                   {"department": ["Менеджмент продукта", "Закупки", "Дистрибуция", "Импорт"]},
+                   {"department": ["Маркетинг", "Реклама и PR", "CRM", "Производство контента"]},
+                   {"department": ["Операционный", "Логистика", "Колл-центр"]},
+                   {"department": ["Sales"]}]            
+    h1 Правление
+    ul
+        each item in structure
+            +departments(item.department)

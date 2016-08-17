@@ -1,0 +1,45 @@
+@mixin cube($size, $color)
+  width: $size
+  height: $size
+  position: relative
+  transform-style: preserve-3d
+  transform: rotateX(-20deg) rotateY(-45deg)
+  top: 50%
+  left: 50%
+  margin-left: - $size / 2
+  margin-top: - $size / 2
+
+  div
+    width: $size
+    height: $size
+    position: absolute
+
+    // box-shadow: inset 0px 0px 30px rgba(0, 0, 0, 0.6)
+
+  div.top
+    transform: rotateX(90deg)
+    margin-top: - $size / 2
+    background: $color
+
+  div.right
+    transform: rotateY(90deg)
+    margin-left: $size / 2
+    background: darken($color, 10%)
+
+  div.bottom
+    transform: rotateX(90deg)
+    margin-top: $size / 2
+    background: $color
+
+  div.left
+    transform: rotateY(-90deg)
+    margin-left: - $size / 2
+    background: darken($color, 10%)
+
+  div.front
+    transform: translateZ($size / 2)
+    background: darken($color, 5%)
+
+  div.back
+    transform: translateZ(- $size / 2)
+    background: darken($color, 5%)
