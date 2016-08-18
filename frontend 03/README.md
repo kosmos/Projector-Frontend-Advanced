@@ -1,4 +1,4 @@
-Postcss-bndr
+Домашняя работа 03
 =========
 
 Postcss plugin which adds the specified string to the end of the CSS file.
